@@ -16,3 +16,11 @@ test('get started link', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
+
+test('print browser version', async ({ page, browserName }) => {
+  const browserType = page.context().browserType();
+  const browser = await browserType.launch();
+  const version = await browser.version();
+  console.log(`The version of ${browserName} is ${version}`);
+  await browser.close();
+});
