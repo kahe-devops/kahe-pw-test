@@ -18,9 +18,11 @@ test('get started link', async ({ page }) => {
 });
 
 test('print browser version', async ({ page, browserName }) => {
-  const browserType = page.context().browserType();
-  const browser = await browserType.launch();
+  const browser = await page.context().browser();
   const version = await browser.version();
   console.log(`The version of ${browserName} is ${version}`);
-  await browser.close();
+  
+  if (browser) {
+    await browser.close();
+  }
 });
