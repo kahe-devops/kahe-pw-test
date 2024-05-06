@@ -50,13 +50,16 @@ jobs:
         retention-days: 10
     
     - name: Setup Pages
+      if: always()
       uses: actions/configure-pages@v5
     
     - name: Upload artifact
+      if: always()
       uses: actions/upload-pages-artifact@v3
       with:
         path: playwright-report/
     
     - name: Deploy Playwright result to Github Pages
+      if: always()
       id: deployment
       uses: actions/deploy-pages@v4
