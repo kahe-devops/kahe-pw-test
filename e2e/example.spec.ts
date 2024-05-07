@@ -1,16 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
-  await page.goto("https://playwright.dev/");
+  await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('print browser version', async ({ page, browserName }) => {
-  const browser = await page.context().browser();
-  const version = await browser.version();
-  console.log(`The version of ${browserName} is ${version}`);
 });
 
 test('get started link', async ({ page }) => {
