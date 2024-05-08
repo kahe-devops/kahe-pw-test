@@ -7,6 +7,7 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Playwright/);
 });
 
+// Print used browser version information.
 test('print browser version', async ({ page, browserName }) => {
   const browser = await page.context().browser();
   const version = await browser.version();
